@@ -56,7 +56,7 @@ class Trophy:
         self._parse_file()
 
     def __del__(self):
-        self.f.close()
+        self.file_handler.close()
 
     # TODO: improve error checking
     def _parse_file(self):
@@ -115,15 +115,3 @@ class Trophy:
 
         with open(f"{filename}.xml", "wb") as decrypted_file:
             decrypted_file.write(decrypted_data)
-
-
-if __name__ == "__main__":
-    t = Trophy("./TROPHY.TRP", "NPWR32931_00")
-
-    print(t.header.version)
-    print(t.entries[0].name)
-
-    print("[!] Extracting")
-
-    # t.extract_files()
-    t.decrypt_esfm_file("./NPWR32931_00/TROP.ESFM")
