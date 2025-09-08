@@ -1,2 +1,6 @@
 __pycache__
 .DS_Store
+
+payload/build
+payload/*.bin
+payload/*.map
