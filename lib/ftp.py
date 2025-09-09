@@ -62,15 +62,15 @@ class PsFTP:
 
 
 # Usage example
-if __name__ == "__main__":
-    pbar = None
+# if __name__ == "__main__":
+#     pbar = None
 
-    def callback(curr_len, total_len):
-        global pbar
-        if not pbar:
-            pbar = progressbar.ProgressBar(max_value=total_len)
-            pbar.start()
-        pbar.update(curr_len)
+#     def callback(curr_len, total_len):
+#         global pbar
+#         if not pbar:
+#             pbar = progressbar.ProgressBar(max_value=total_len)
+#             pbar.start()
+#         pbar.update(curr_len)
 
-    pf = PsFTP()
-    pf.get_trophy_for_comm_id("NPWR06221_00", callback)
+#     pf = PsFTP()
+#     pf.get_trophy_for_comm_id("NPWR06221_00", callback)

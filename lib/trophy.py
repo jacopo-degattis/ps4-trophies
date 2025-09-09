@@ -4,6 +4,7 @@ import os.path
 from typing import List
 from dataclasses import dataclass
 from Crypto.Cipher import AES
+from io import BufferedReader, BytesIO
 
 
 @dataclass(frozen=True)
@@ -32,22 +33,33 @@ class Trophy:
     np_comm_id: str = None
     header: TrpHeader = None
     entries: List[TrpEntry] = []
-    file_handler: any
+    file_handler: BufferedReader | BytesIO
     trophy_key = "21F41A6BAD8A1D3ECA7AD586C101B7A9"
 
-    def __init__(self, filename, np_comm_id):
-        if not filename or not np_comm_id:
-            raise Exception("You must provide both .trp filename and game comm_id")
+    # If from_bytes is provided it does have priority over the filename
+    # And the current trophy will be loaded starting from bytes
+    def __init__(self, np_comm_id, filename=None, from_bytes=None):
+        if not filename and not from_bytes:
+            raise Exception(
+                "You must either provide a valid filename or using a bytes stream to initialize the class."
+            )
 
-        if not os.path.isfile(filename):
-            raise Exception("file not found: " + filename)
+        if not np_comm_id:
+            raise Exception("You must provide a valid game comm_id")
 
-        f = open(filename, "rb")
-        self.file_handler = f
+        if from_bytes:
+            self.file_handler = BytesIO(from_bytes)
+        else:
+            if not os.path.isfile(filename):
+                raise Exception("file not found: " + filename)
+
+            f = open(filename, "rb")
+            self.file_handler = f
 
         self.np_comm_id = np_comm_id
 
         magic_header = self.file_handler.read(4)
+
         print(magic_header)
 
         if magic_header != bytes.fromhex("dca24d00"):
@@ -55,8 +67,8 @@ class Trophy:
 
         self._parse_file()
 
-    def __del__(self):
-        self.file_handler.close()
+    # def __del__(self):
+    #     self.file_handler.close()
 
     # TODO: improve error checking
     def _parse_file(self):
@@ -83,20 +95,25 @@ class Trophy:
             entry_fields[0] = entry_fields[0].rstrip(b"x\00").decode()
             self.entries.append(TrpEntry(*entry_fields))
 
-    def extract_files(self):
+    def extract_files(self, custom_path=None):
         if os.path.isdir(self.np_comm_id):
             raise Exception(f"folder {self.np_comm_id} already exists, aborting.")
 
-        os.mkdir(self.np_comm_id)
+        os.mkdir(f"{custom_path}/{self.np_comm_id}")
 
         for file in self.entries:
             self.file_handler.seek(file.start_pos)
             data = self.file_handler.read(file.length)
 
-            with open(f"{self.np_comm_id}/{file.name}", "wb") as output_file:
+            output_path = f"{self.np_comm_id}/{file.name}"
+
+            if custom_path:
+                output_path = f"{custom_path}/{output_path}"
+
+            with open(output_path, "wb") as output_file:
                 output_file.write(data)
 
-    def decrypt_esfm_file(self, filename):
+    def decrypt_esfm_file(self, filename, as_file=False):
         encoded_np_id = self.np_comm_id.encode("utf-8").ljust(16, b"\x00")
 
         esfm_file = open(filename, "rb")
@@ -113,5 +130,9 @@ class Trophy:
         cipher = AES.new(derived_key, AES.MODE_CBC, game_iv)
         decrypted_data = cipher.decrypt(encrypted_data)
 
-        with open(f"{filename}.xml", "wb") as decrypted_file:
-            decrypted_file.write(decrypted_data)
+        if as_file:
+            with open(f"{filename}.xml", "wb") as decrypted_file:
+                decrypted_file.write(decrypted_data)
+            return
+
+        return decrypted_data

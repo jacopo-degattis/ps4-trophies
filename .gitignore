@@ -4,3 +4,7 @@ __pycache__
 CACHEDIR.TAG
 
 config.toml
+.DS_Store
+
+server/static/*
+!server/static/README.md
