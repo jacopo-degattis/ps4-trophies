@@ -19,7 +19,8 @@ def serve_frontend():
     pass
 
 
-@app.route("/api/pull-trophy", methods=["POST"])
+# Get trophies list as XML from a given np_comm_id
+@app.route("/api/pull-trophies", methods=["POST"])
 def pull_trophy():
     data = request.json
     np_comm_id = data.get("np_comm_id")
