@@ -1,4 +1,4 @@
-from trp import Trophy
+from lib.trophy import Trophy
 
 if __name__ == "__main__":
     t = Trophy("./TROPHY.TRP", "NPWR32931_00")
