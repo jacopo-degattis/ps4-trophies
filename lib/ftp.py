@@ -29,48 +29,50 @@ class PsFTP:
 
         config_file.close()
 
-    def __update_progress(self, fd, file_size, data, update_callback):
+    def __update_progress_file(self, fd, file_size, data, update_callback):
         if update_callback:
             self.current_transfer_size += len(data)
             update_callback(self.current_transfer_size, file_size)
+
         fd.write(data)
 
+    def __update_progress_stream(self, buffer, file_size, data, update_callback):
+        if update_callback:
+            self.current_transfer_size += len(data)
+            update_callback(self.current_transfer_size, file_size)
+
+        buffer += data
+
     def get_trophy_for_comm_id(
-        self, np_comm_id, update_callback: Callable[[int, int], None]
+        self, np_comm_id, update_callback: Callable[[int, int], None], to_file=None
     ):
         trophy_path = f"{USER_PATH}/{np_comm_id}/TROPHY.TRP"
 
-        fd = open(f"{np_comm_id}.TRP", "wb")
-        file_size = self.ftp.size(trophy_path)
+        buffer = None
+        if to_file:
+            buffer = open(f"{np_comm_id}.TRP", "wb")
+            callback = self.__update_progress_file
+        else:
+            buffer = bytearray()
+            callback = self.__update_progress_stream
 
-        print(trophy_path)
+        # Get total file size
+        file_size = self.ftp.size(trophy_path)
 
         try:
             self.ftp.retrbinary(
                 f"RETR {trophy_path}",
-                lambda data: self.__update_progress(
-                    fd, file_size, data, update_callback
-                ),
+                lambda data: callback(buffer, file_size, data, update_callback),
             )
-            fd.close()
             self.ftp.quit()
             self.current_transfer_size = 0
+
+            if to_file:
+                buffer.close()
+            else:
+                return buffer
         except Exception as e:
-            fd.close()
+            if to_file:
+                buffer.close()
             self.current_transfer_size = 0
             print("error while fetching: ", e)
-
-
-# Usage example
-# if __name__ == "__main__":
-#     pbar = None
-
-#     def callback(curr_len, total_len):
-#         global pbar
-#         if not pbar:
-#             pbar = progressbar.ProgressBar(max_value=total_len)
-#             pbar.start()
-#         pbar.update(curr_len)
-
-#     pf = PsFTP()
-#     pf.get_trophy_for_comm_id("NPWR06221_00", callback)

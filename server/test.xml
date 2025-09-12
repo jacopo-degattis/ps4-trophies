@@ -1,0 +1,212 @@
+<!--Sce-Np-Trophy-Signature: 4c39b98c0100000000000000d12711307a13be5421c3e9e217581e02a95eba6faa5ce1d4eac349ea7b037e3614315ee54f90f3c97cceae74ef21c655a4ef2109d05ad545459297b6313ce34a6acd5ad04aab8cf878f7d263865a5965a2274910401cee01918cfbcf08ce5f9b23fdcc27eab38ef42010aa089b597caea3a19abe3dc3aca54dce4a704ea1c0396bc5f8e3d703b01ebd6cdd88730e5ef939b1808b-->
+<trophyconf version="1.1" platform="ps4" policy="large">
+ <npcommid>NPWR06221_00</npcommid>
+ <trophyset-version>01.02</trophyset-version>
+ <parental-level license-area="default">0</parental-level>
+ <title-name>Grand Theft Auto V</title-name>
+ <title-detail>Grand Theft Auto V</title-detail>
+ <trophy id="000" hidden="no" ttype="P" pid="-1">
+  <name>Los Santos Legend</name>
+  <detail>Congratulations! You're Vinewood's biggest star!&#x0a;</detail>
+ </trophy>
+ <trophy id="001" hidden="yes" ttype="B" pid="000">
+  <name>Welcome to Los Santos</name>
+  <detail>You repo'd a car and raced it through the heart of a sun-soaked metropolis.</detail>
+ </trophy>
+ <trophy id="002" hidden="yes" ttype="B" pid="000">
+  <name>A Friendship Resurrected</name>
+  <detail>With friends like this who needs enemies?</detail>
+ </trophy>
+ <trophy id="003" hidden="yes" ttype="B" pid="000">
+  <name>A Fair Day's Pay</name>
+  <detail>It's time for a little getaway.</detail>
+ </trophy>
+ <trophy id="004" hidden="yes" ttype="B" pid="000">
+  <name>The Moment of Truth</name>
+  <detail>You have uncovered the truth about Brad.</detail>
+ </trophy>
+ <trophy id="005" hidden="yes" ttype="S" pid="000">
+  <name>To Live or Die in Los Santos</name>
+  <detail>Completed the final mission.</detail>
+ </trophy>
+ <trophy id="006" hidden="yes" ttype="B" pid="000">
+  <name>Diamond Hard</name>
+  <detail>You cleaned out Vangelico to pay back Martin Madrazo.</detail>
+ </trophy>
+ <trophy id="007" hidden="yes" ttype="B" pid="000">
+  <name>Subversive</name>
+  <detail>You stole an experimental super weapon from Merryweather... and gave it back.</detail>
+ </trophy>
+ <trophy id="008" hidden="yes" ttype="B" pid="000">
+  <name>Blitzed</name>
+  <detail>You performed a classic blitz play.</detail>
+ </trophy>
+ <trophy id="009" hidden="yes" ttype="B" pid="000">
+  <name>Small Town, Big Job </name>
+  <detail>You made a big impression at the Paleto Bay Chicken Festival.</detail>
+ </trophy>
+ <trophy id="010" hidden="yes" ttype="B" pid="000">
+  <name>The Government Gimps </name>
+  <detail>You recovered sensitive information from a highly defended federal building.</detail>
+ </trophy>
+ <trophy id="011" hidden="yes" ttype="B" pid="000">
+  <name>The Big One!</name>
+  <detail>This ain't no dream no more.</detail>
+ </trophy>
+ <trophy id="012" hidden="no" ttype="G" pid="000">
+  <name>Solid Gold, Baby!</name>
+  <detail>Earn any 70 Gold Medals on Missions, Strangers and Freaks.&#x0a;</detail>
+ </trophy>
+ <trophy id="013" hidden="no" ttype="G" pid="000">
+  <name>Career Criminal</name>
+  <detail>Attain 100% Game Completion.</detail>
+ </trophy>
+ <trophy id="014" hidden="no" ttype="S" pid="000">
+  <name>San Andreas Sightseer</name>
+  <detail>Explore all of Los Santos and Blaine County</detail>
+ </trophy>
+ <trophy id="015" hidden="no" ttype="B" pid="000">
+  <name>All's Fare in Love and War</name>
+  <detail>Purchase Downtown Cab Co. and complete a private fare.</detail>
+ </trophy>
+ <trophy id="016" hidden="no" ttype="B" pid="000">
+  <name>TP Industries Arms Race</name>
+  <detail>Purchase McKenzie Field Hangar and win the arms race.</detail>
+ </trophy>
+ <trophy id="017" hidden="no" ttype="B" pid="000">
+  <name>Multi-Disciplined</name>
+  <detail>Attain a gold medal in all applicable hobbies and pastimes.</detail>
+ </trophy>
+ <trophy id="018" hidden="no" ttype="B" pid="000">
+  <name>From Beyond the Stars</name>
+  <detail>Collect and return all spaceship parts.</detail>
+ </trophy>
+ <trophy id="019" hidden="no" ttype="B" pid="000">
+  <name>A Mystery, Solved</name>
+  <detail>Solve the mystery of Leonora Johnson.</detail>
+ </trophy>
+ <trophy id="020" hidden="no" ttype="B" pid="000">
+  <name>Waste Management</name>
+  <detail>Purchase the old dock and collect all nuclear waste.</detail>
+ </trophy>
+ <trophy id="021" hidden="no" ttype="B" pid="000">
+  <name>Red Mist</name>
+  <detail>Complete all Rampages.</detail>
+ </trophy>
+ <trophy id="022" hidden="no" ttype="B" pid="000">
+  <name>Show Off</name>
+  <detail>Complete all Stunt Jumps.</detail>
+ </trophy>
+ <trophy id="023" hidden="no" ttype="S" pid="000">
+  <name>Kifflom!</name>
+  <detail>Complete your path to enlightenment... or not.</detail>
+ </trophy>
+ <trophy id="024" hidden="no" ttype="B" pid="000">
+  <name>Three Man Army</name>
+  <detail>Survive 3 minutes on at least a 3 star Wanted Level with all three characters together off mission.</detail>
+ </trophy>
+ <trophy id="025" hidden="no" ttype="B" pid="000">
+  <name>Out of Your Depth </name>
+  <detail>You're gonna need a bigger boat...</detail>
+ </trophy>
+ <trophy id="026" hidden="no" ttype="B" pid="000">
+  <name>Altruist Acolyte</name>
+  <detail>Deliver an unsuspecting victim to the Altruist Cult.</detail>
+ </trophy>
+ <trophy id="027" hidden="no" ttype="B" pid="000">
+  <name>A Lot of Cheddar</name>
+  <detail>Spend a total of $200 million across all three characters.</detail>
+ </trophy>
+ <trophy id="028" hidden="no" ttype="B" pid="000">
+  <name>Trading Pure Alpha</name>
+  <detail>Make a profit over your total investments in the stock market.</detail>
+ </trophy>
+ <trophy id="029" hidden="no" ttype="B" pid="000">
+  <name>Pimp My Sidearm</name>
+  <detail>Fully mod a weapon.</detail>
+ </trophy>
+ <trophy id="030" hidden="no" ttype="B" pid="000">
+  <name>Wanted: Alive or Alive</name>
+  <detail>Deliver a bail bond target alive.</detail>
+ </trophy>
+ <trophy id="031" hidden="no" ttype="B" pid="000">
+  <name>Los Santos Customs</name>
+  <detail>Fully mod a vehicle.</detail>
+ </trophy>
+ <trophy id="032" hidden="no" ttype="B" pid="000">
+  <name>Close Shave</name>
+  <detail>Complete all Under the Bridge and Knife Flight challenges.</detail>
+ </trophy>
+ <trophy id="033" hidden="no" ttype="B" pid="000">
+  <name>Off the Plane</name>
+  <detail>GTA Online: Complete the Introduction.</detail>
+ </trophy>
+ <trophy id="034" hidden="no" ttype="B" pid="000">
+  <name>Three-Bit Gangster</name>
+  <detail>GTA Online: Reach Rank 25.</detail>
+ </trophy>
+ <trophy id="035" hidden="no" ttype="S" pid="000">
+  <name>Making Moves</name>
+  <detail>GTA Online: Reach Rank 50.</detail>
+ </trophy>
+ <trophy id="036" hidden="no" ttype="G" pid="000">
+  <name>Above the Law</name>
+  <detail>GTA Online: Reach Rank 100.</detail>
+ </trophy>
+ <trophy id="037" hidden="no" ttype="B" pid="000">
+  <name>Numero Uno</name>
+  <detail>GTA Online: Obtain first place in all competitive game types.</detail>
+ </trophy>
+ <trophy id="038" hidden="no" ttype="B" pid="000">
+  <name>The Midnight Club</name>
+  <detail>GTA Online: Use custom vehicles to win 5 races.</detail>
+ </trophy>
+ <trophy id="039" hidden="no" ttype="B" pid="000">
+  <name>Unnatural Selection</name>
+  <detail>GTA Online: Complete all 10 waves of a Survival.</detail>
+ </trophy>
+ <trophy id="040" hidden="no" ttype="B" pid="000">
+  <name>Backseat Driver</name>
+  <detail>GTA Online: Direct a driver to 1st place as co-driver in Rally Mode.</detail>
+ </trophy>
+ <trophy id="041" hidden="no" ttype="B" pid="000">
+  <name>Run Like The Wind</name>
+  <detail>GTA Online: Survive with a Bounty on your head.</detail>
+ </trophy>
+ <trophy id="042" hidden="no" ttype="B" pid="000">
+  <name>Clean Sweep</name>
+  <detail>GTA Online: Finish a Gang Attack without dying and kill at least 10 enemies.</detail>
+ </trophy>
+ <trophy id="043" hidden="no" ttype="S" pid="000">
+  <name>Decorated</name>
+  <detail>GTA Online: Earn 30 Platinum Awards.</detail>
+ </trophy>
+ <trophy id="044" hidden="no" ttype="B" pid="000">
+  <name>Stick Up Kid</name>
+  <detail>GTA Online: Hold up all 20 Stores.</detail>
+ </trophy>
+ <trophy id="045" hidden="no" ttype="B" pid="000">
+  <name>Enjoy Your Stay</name>
+  <detail>GTA Online: Participate in everything Los Santos has to offer.</detail>
+ </trophy>
+ <trophy id="046" hidden="no" ttype="B" pid="000">
+  <name>Crew Cut</name>
+  <detail>GTA Online: Complete a Job as a member of a Crew.</detail>
+ </trophy>
+ <trophy id="047" hidden="no" ttype="B" pid="000">
+  <name>Full Refund</name>
+  <detail>GTA Online: Kill the thief that mugged you.</detail>
+ </trophy>
+ <trophy id="048" hidden="no" ttype="B" pid="000">
+  <name>Dialling Digits</name>
+  <detail>GTA Online: Call for a Backup Helicopter for the first time.</detail>
+ </trophy>
+ <trophy id="049" hidden="no" ttype="B" pid="000">
+  <name>American Dream</name>
+  <detail>GTA Online: Own an Apartment, Garage and an Insured Vehicle</detail>
+ </trophy>
+ <trophy id="050" hidden="yes" ttype="B" pid="000">
+  <name>A New Perspective</name>
+  <detail>You played GTA V in first person mode for 15 hours.</detail>
+ </trophy>
+</trophyconf>
