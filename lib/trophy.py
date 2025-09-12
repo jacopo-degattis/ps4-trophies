@@ -1,3 +1,4 @@
+import re
 import os
 import struct
 import os.path
@@ -5,6 +6,7 @@ from typing import List
 from dataclasses import dataclass
 from Crypto.Cipher import AES
 from io import BufferedReader, BytesIO
+import xml.etree.ElementTree as ET
 
 
 @dataclass(frozen=True)
@@ -26,6 +28,9 @@ class TrpEntry:
     length: int
     flag: int
     padding: bytes
+
+
+TRPOHY_TYPE_MAPPING = {"P": "PLATINUM", "G": "GOLD", "S": "SILVER", "B": "BRONZE"}
 
 
 # Represents a .TRP file, used to store trophies in the playstation systems
@@ -60,8 +65,6 @@ class Trophy:
 
         magic_header = self.file_handler.read(4)
 
-        print(magic_header)
-
         if magic_header != bytes.fromhex("dca24d00"):
             raise Exception("invalid .trp file provided.")
 
@@ -95,11 +98,18 @@ class Trophy:
             entry_fields[0] = entry_fields[0].rstrip(b"x\00").decode()
             self.entries.append(TrpEntry(*entry_fields))
 
-    def extract_files(self, custom_path=None):
-        if os.path.isdir(self.np_comm_id):
-            raise Exception(f"folder {self.np_comm_id} already exists, aborting.")
+    def extract_files(self, custom_path=None, exception_if_exists=False):
 
-        os.mkdir(f"{custom_path}/{self.np_comm_id}")
+        path_to_check = self.np_comm_id
+        if custom_path:
+            path_to_check = f"{custom_path}/{path_to_check}"
+
+        if os.path.isdir(path_to_check) and exception_if_exists:
+            raise Exception(f"folder {path_to_check} already exists, aborting.")
+        elif os.path.isdir(path_to_check):
+            return
+
+        os.mkdir(path_to_check)
 
         for file in self.entries:
             self.file_handler.seek(file.start_pos)
@@ -136,3 +146,38 @@ class Trophy:
             return
 
         return decrypted_data
+
+    def trophies_as_json(self, filename):
+        def sanitize_xml(content):
+            # Remove control characters not allowed in XML 1.0
+            return re.sub(b"[\x00-\x08\x0b\x0c\x0e-\x1f]", b"", content)
+
+        decrypted_data = self.decrypt_esfm_file(filename)
+        sanitized_data = sanitize_xml(decrypted_data)
+
+        print(sanitized_data)
+
+        tree = ET.fromstring(sanitized_data)
+
+        trophies = []
+
+        for trp in tree.findall("trophy"):
+            trophies.append(
+                {
+                    "id": trp.get("id"),
+                    "hidden": trp.get("hidden"),
+                    "ttype": TRPOHY_TYPE_MAPPING[trp.get("ttype")],
+                    "pid": trp.get("pid"),
+                    "name": trp.find("name").text,
+                    "detail": trp.find("detail").text,
+                }
+            )
+
+        return {
+            "np_comm_id": tree.find("npcommid").text,
+            "trophyset_version": tree.find("trophyset-version").text,
+            "parental_level": tree.find("parental-level").text,
+            "title": tree.find("title-name").text,
+            "title_detail": tree.find("title-detail").text,
+            "trophies": trophies,
+        }

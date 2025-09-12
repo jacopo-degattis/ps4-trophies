@@ -8,3 +8,5 @@ config.toml
 
 server/static/*
 !server/static/README.md
+
+frontend/.vscode
