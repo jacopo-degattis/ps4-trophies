@@ -6,6 +6,10 @@ I wanted to learn more about the trophy system on the PS4 and more in general on
 
 So I started looking around and reading guides and forums trying to implement, at start, a .TRP file parser to list all trophies related to a specific game.
 
+## How to create the .PKG file (for PS4)
+
+Refer on "How to build" in the guide [here](./pkg/README.md)
+
 ## Long-term idea
 
 I'd like to provide a .PKG file to run an HTTP server that give the user the ability to unlock trophies remotely thorugh a web-ui.
