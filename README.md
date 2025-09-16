@@ -24,6 +24,20 @@ This will contain the code for the HTTP .pkg file in the future.
 
 The payload folder also contains a `Dockerfile` to make it easier to build the .bin payload.
 
+## Kernel logs output
+
+In order to get to see kernel logs you need to use the following commands in two separate shells.
+
+```sh
+$ socat -d -d pty,raw,echo=0,link=/tmp/virtualTTY TCP:<CONSOLE_IP>:3232
+```
+
+and then
+
+```sh
+$ cat /tmp/virtualTTY | sed 's/[[:space:]]\+$//'
+```
+
 ## Sources
 
 - https://www.psxhax.com/

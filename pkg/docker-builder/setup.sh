@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TOKEN="YOUR_GITHUB_TOKEN"
+TOKEN="<GITHUB_TOKEN>"
 API_URL="https://api.github.com/repos/OpenOrbis/OpenOrbis-PS4-Toolchain/actions/runs?per_page=1&branch=master&status=success"
 
 function check_status_code() {
